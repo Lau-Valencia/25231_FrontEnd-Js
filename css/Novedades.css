@@ -1,0 +1,141 @@
+.fondo-title-nov {
+    background: linear-gradient(135deg, #7102e0 10%, #284ae0b6 90%);
+    width: 100%;
+    height: 30%;
+    margin: 10px;
+    border-radius: 15%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-nov-1 {
+    color: rgb(248, 232, 5);
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    margin-top: 30px;
+    font-size: 32px;
+    align-items: first baseline;
+}
+
+.subtitle-nov-1 {
+    color: rgb(248, 232, 5);
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    margin-top: 30px;
+    font-size: 24px;
+    align-items: first baseline;
+}
+
+#butn-nov {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.butn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgb(248, 232, 5);
+}
+
+.butn:active {
+    transform: translateY(0);
+}
+
+h4 {
+    color: rgb(248, 232, 5);
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    margin-top: 30px;
+    font-size: 16px;
+    align-items: first baseline;
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+}
+
+#luis_miguel {
+    width: 60%;
+}
+
+/* -------------------- TABLA -------------------- */
+.contTabla {
+    background-color: #470068be;
+    background-image: linear-gradient(135deg, #284ae0b6 30%, #7102e0 70%);
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    border: 2px solid rgba(219, 213, 127, 0.486);
+    /* Borde */
+    box-shadow: 0 4px 15px rgba(216, 80, 250, 0.5);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    color: rgb(199, 186, 2);
+}
+
+.style-head-table {
+
+    background-color: #68019796;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px 15px;
+    border-right: 1px solid rgba(248, 232, 5, 0.5);
+    width: 30%;
+    color: rgb(248, 232, 5);
+    vertical-align: top;
+
+}
+
+/* Estilo para el cuerpo de la tabla (las filas de datos) */
+.style-body-table {
+    font-size: 15px;
+}
+
+/* Estilo para las celdas de datos */
+.tabla td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(248, 232, 5, 0.1);
+    border-left: 1px solid rgba(248, 232, 5, 0.2);
+    text-align: left;
+    vertical-align: top;
+}
+
+/* Estilos de las líneas (botUp y botDn) */
+.botUp,
+.botDn {
+    height: 5px;
+    background-color: rgb(248, 232, 5);
+    /* Color de contraste fuerte para enmarcar */
+}
+
+.style-body-table tr:last-child td {
+    border-bottom: none;
+}
+
+#Novedades-5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(248, 232, 5);
+    margin: 20px;
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+#Quiero {
+    margin-left: 21px;
+}

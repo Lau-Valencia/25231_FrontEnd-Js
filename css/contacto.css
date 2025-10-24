@@ -1,0 +1,99 @@
+.contacto-section {
+    padding: 60px 20px;
+    background-color: #470068be;
+    min-height: 600px;
+}
+
+.titulo-contacto {
+    text-align: center;
+    color: rgb(248, 232, 5);
+    font-size: 2.0rem;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+
+.contacto-container-total {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.contacto-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1000px;
+    gap: 60px;
+}
+
+/* COLUMNAS */
+.columna-redes {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    align-items: center;
+    flex: 1;
+}
+
+.columna-centro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    flex: 1.5;
+}
+
+/* ICONOS */
+.icono-red {
+    width: 60px;
+    height: 60px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icono-grande {
+    width: 90px;
+    height: 90px;
+}
+
+.red-social-link:hover .icono-red {
+    transform: scale(1.15);
+    box-shadow: 0 5px 20px rgba(248, 232, 5, 0.4);
+}
+
+/* INFORMACIÓN */
+.info-texto {
+    color: rgb(255, 248, 149);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+/* MAPA */
+.mapa {
+    width: 500px;
+    height: 250px;
+    border: 3px solid rgb(248, 232, 5);
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .contacto-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .mapa {
+        width: 100%;
+        max-width: 400px;
+    }
+}

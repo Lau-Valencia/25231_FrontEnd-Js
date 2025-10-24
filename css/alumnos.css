@@ -1,0 +1,220 @@
+/* 1. ESTILOS GENERALES Y CARRUSEL BASE */
+.reviews-section {
+    /* Centrar la sección en la página */
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.login-section{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    justify-items: center;
+    padding: 20px;
+    margin: 40px 0;
+    position: relative;
+    z-index: 10; /* Para que esté arriba del footer */
+    border: 2px solid rgb(248, 232, 5);
+    border-radius: 15px;
+    background: rgba(81, 1, 155, 0.281);
+}
+
+.prox{
+color: rgb(248, 232, 5);
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    width: 90%;
+}
+
+.login-section {
+    padding: 60px 20px;
+    text-align: center;
+    margin: 15%;
+    margin-top: 1%;
+}
+
+.login-section h2 {
+    color: rgb(248, 232, 5);
+    margin-bottom: 30px;
+}
+
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #284ae0b6 10%, #7102e0 90%);
+    box-shadow: 0 5px 15px rgba(248, 232, 5, 0.5);
+}
+
+.login-form label {
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: rgb(248, 232, 5);
+}
+
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(248, 232, 5);
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+}
+
+/* ESTILOS DEL BOTÓN (Estético y Deshabilitado) */
+.boton {
+    background: linear-gradient(135deg, #7102e0 10%, #2340c2b6 90%);
+    color: rgb(248, 232, 5);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 3%;
+    box-shadow: 0 5px 15px rgba(66, 7, 121, 0.8);
+}
+
+
+/* CARTEL DE CONSTRUCCIÓN */
+.construction-message {
+    margin-top: 20px;
+    padding: 15px;
+    border: 2px dashed #ff0000;
+
+    color: rgb(248, 232, 5);
+    border-radius: 5px;
+    font-size: 0.95em;
+    font-weight: 500;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: scroll;
+    height: 540px;
+    width: 90%;
+    padding: 20px 0;
+    /* desplazamiento manual suave */
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.carousel-container::-webkit-scrollbar {
+    height: 14px;
+    background-color: transparent;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+     background: linear-gradient(90deg, #DDAA00 0%,#FFEA00 50%, #DDAA00 100%  100%);
+    box-shadow: inset inset 0 0 5px rgb(0, 0, 0);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+.carousel-container::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #EEDD00 0%, #FFFF00 50%, #EEDD00 100%);
+}
+
+.reviewer-header {
+    width: 100%;
+    text-align: center;
+}
+
+.review-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 200px;
+    width: 200px;
+    margin: 0 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #7102e0 20%, #2340c2b6 80%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    scroll-snap-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.4s ease;
+}
+
+.review-card:hover {
+    box-shadow: 5px 5px 15px rgba(248, 232, 5, 0.6);
+}
+
+.reviewer-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px 4px #FFC107;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.card-toggle:checked~.review-card {
+    /* Efecto "se acerca la tarjeta" */
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(248, 232, 5, 0.8);
+}
+
+.card-toggle:checked~.review-card .full-description {
+    /* Mostrar la descripción */
+    max-height: 600px;
+    opacity: 1;
+    margin-top: 10px;
+}
+
+.card-toggle:checked~.review-card .reviewer-photo {
+    transform: rotate(-5deg);
+}
+
+.reviewer-name {
+    margin: 4;
+    font-size: 1.4em;
+    color: rgb(248, 232, 5);
+}
+
+.reviewer-job {
+    margin: 5px 0 15px;
+    font-size: 1.1em;
+    color: rgb(248, 232, 5);
+}
+
+/* Estilos de Puntuación (Mics) */
+.review-rating {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.mic-icon {
+    width: 25px;
+    height: 25px;
+}
+
+
+.full-description {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out, opacity 0.4s ease-in-out;
+    font-style: italic;
+    color: rgb(248, 232, 5);
+    font-size: 0.9em;
+    padding: 0 5px;
+}
+
+.full-description p {
+    margin-top: 5px;
+    margin-bottom: 0;
+}

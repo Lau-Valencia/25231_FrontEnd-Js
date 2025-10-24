@@ -1,0 +1,12 @@
+# Archivos del editor
+
+.vscode/
+
+#Archivos temporales
+
+*.log
+*.temp
+
+#librerias npm (por si necesito alguna)
+
+node_modules/

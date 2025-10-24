@@ -1,0 +1,236 @@
+body {
+
+    background-color: #470068be;
+    padding: 0px;
+    margin: 0px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #284ae0b6 10%, #7102e0 90%);
+    width: 100%;
+}
+
+h1,
+h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 700px;
+}
+
+h3,
+h4,
+h5,
+h6,
+nav {
+    font-family: "Poiret One", sans-serif;
+    font-weight: 400;
+}
+
+p, th, td {
+    font-family: "Merriweather", serif;
+}
+
+/*------------------------------BARRA DE NAVEGACION------------------------------*/
+.img_logo {
+    width: 80px;
+    margin: 15px;
+    padding: 15px;
+}
+
+.navegador {
+    display: flex;
+    list-style: none;
+    align-items: end;
+}
+
+/* Color de link no visitado */
+.navegador a:link {
+    color: rgb(248, 232, 5);
+    font-size: 22px;
+    margin: 10px;
+}
+
+/* Color de link ya visitado */
+.navegador a:visited {
+    color: rgb(248, 232, 5);
+}
+
+/* Color cuando el ratón está encima */
+.navegador a:hover {
+    color: rgb(255, 247, 141);
+}
+
+/* Color cuando se hace clic */
+.navegador a:active {
+    color: #ffffff;
+}
+
+.underline {
+    text-decoration: none;
+    list-style: none;
+
+}
+
+.navegador a.activa {
+    text-decoration: none;
+    list-style: none;
+    color: rgb(255, 248, 149);
+    text-shadow: 0 0 7px;
+    font-weight: bold;
+}
+
+.butn {
+    background: linear-gradient(135deg, #7102e0 10%, #2340c2b6 90%);
+    ;
+    color: rgb(248, 232, 5);
+    border: none;
+    width: 250px;
+    margin-top: 20px;
+    padding: 2px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    text-decoration: none;
+    list-style: none;
+}
+
+.butn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(66, 7, 121, 0.5);
+}
+
+.butn:active {
+    transform: translateY(0);
+}
+
+.botn {
+    font-size: 24px;
+    margin: 20px;
+    font-weight: 800;
+}
+
+/*main(¿?)*/
+
+/*------------------------------FOOTER------------------------------*/
+.pie {
+    position: relative;
+    background-image: url(/asset/imagenes/fotos/Elvis_mic2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 25%;
+    width: 100%;
+    display: flex;
+
+}
+
+/* PREGUNTAR AL PROFE  En LA AFTER puedo usar pseudo elementos?*/
+.pie::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #470068b6;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imgPie {
+    display: flex;
+    flex-direction: column;
+}
+
+.photo {
+    height: 70px;
+    width: 70px;
+    z-index: 2;
+    padding: 5px;
+}
+
+.acomodar {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+
+.bases {
+    display: flex;
+}
+
+
+/*nav del FOOTER*/
+.navegador1 {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.underline {
+    margin: 15px;
+    font-size: 14px;
+    z-index: 2;
+}
+
+.underline:link {
+    color: rgb(211, 179, 1);
+}
+
+.underline:visited {
+    color: rgb(211, 179, 1);
+}
+
+.derechos {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    color: rgb(255, 248, 149);
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    z-index: 2;
+}
+
+.LadyBits {
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+    padding-left: 10px;
+}
+
+.bases {
+    display: flex;
+    justify-content: space-around;
+    z-index: 2;
+}
+
+.email {
+    list-style: none;
+    margin: 15px;
+    font-size: medium;
+    font-weight: 800;
+    color: rgb(255, 248, 149);
+    z-index: 2;
+}
+
+.mail {
+    margin: 10px;
+    font-size: x-large;
+    z-index: 2;
+}
+
+.mail:link {
+    color: rgb(248, 232, 5);
+}
+
+.mail:visited {
+    color: rgb(248, 232, 5);
+}

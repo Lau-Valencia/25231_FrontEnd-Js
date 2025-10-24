@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sala-de-exhibicion {
+    padding: 80px 20px;
+    color: rgb(248, 232, 5);
+    font-size: 1.8rem;
+    position: relative;
+    min-height: 400px;
+}
+
+.sala-name {
+    font-family: "Merriweather", serif;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ===== CONTENEDOR DE LA GRILLA (3 COLUMNAS) ===== */
+.sub-galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-auto-rows: 250px;
+}
+
+/* ===== ITEMS DE LA GALERÍA ===== */
+.item-galeria {
+    position: relative;
+    overflow: hidden;
+    background-color: transparent; 
+    border-radius: 3px;
+    height: 100%;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); 
+    transition: all 0.3s ease-in-out;
+}
+
+.item-galeria:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6); 
+}
+
+.item-link {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    position: relative;
+}
+
+.cuadro-galeria {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    box-shadow: inset 0 9 20 12px rgba(53, 1, 95, 24%);
+    border: none;
+}
+
+/* ===== DESCRIPCIÓN DE FOTOS ===== */
+.descripcion-fotos {
+    position: absolute;
+    bottom: 5px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: #f3ea9b;
+    color: #444; 
+    font-family: "Merriweather", serif; 
+    font-size: 0.35em;
+    padding: 6px 12px;
+    margin: 0;
+    white-space: nowrap; 
+    box-shadow: 1px 1px 3px rgba(105, 2, 153, 0.747);
+    border-radius: 2px;
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    .sub-galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .sub-galeria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sala-de-exhibicion {
+        padding: 40px 15px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+    .sub-galeria-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 180pxpx;
+    }
+
+    .item-main {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .sala-de-exhibicion {
+        padding: 40px 15px;
+    }
+
+    .descripcion-fotos {
+        font-size: 0.5em;
+    }
+}
