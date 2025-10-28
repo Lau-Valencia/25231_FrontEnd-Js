@@ -24,7 +24,7 @@
 /* ===== CONTENEDOR DE LA GRILLA (3 COLUMNAS) ===== */
 .sub-galeria-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);  
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -35,16 +35,16 @@
 .item-galeria {
     position: relative;
     overflow: hidden;
-    background-color: transparent; 
+    background-color: transparent;
     border-radius: 3px;
     height: 100%;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5); 
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease-in-out;
 }
 
 .item-galeria:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6); 
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6);
 }
 
 .item-link {
@@ -67,55 +67,55 @@
 /* ===== DESCRIPCIÓN DE FOTOS ===== */
 .descripcion-fotos {
     position: absolute;
-    bottom: 5px; 
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     background-color: #f3ea9b;
-    color: #444; 
-    font-family: "Merriweather", serif; 
+    color: #444;
+    font-family: "Merriweather", serif;
     font-size: 0.35em;
     padding: 6px 12px;
     margin: 0;
-    white-space: nowrap; 
+    white-space: nowrap;
     box-shadow: 1px 1px 3px rgba(105, 2, 153, 0.747);
     border-radius: 2px;
 }
 
-/* Tablets */
+/* Tablets 2 columnas */
 @media (max-width: 900px) {
     .sub-galeria-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .sub-galeria-grid {
-        grid-template-columns: 1fr;
+        gap: 18px;
+        grid-auto-rows: auto;
     }
 
-    .sala-de-exhibicion {
-        padding: 40px 15px;
-    }
-}
-
-/* Móviles */
-@media (max-width: 600px) {
-    .sub-galeria-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 180pxpx;
-    }
-
+    .item-cantante-principal,
     .item-main {
         grid-column: span 1;
         grid-row: span 1;
     }
+}
 
+/* celulares 1 columna */
+@media (max-width: 600px) {
     .sala-de-exhibicion {
-        padding: 40px 15px;
+        padding: 40px 10px;
+    }
+
+    .sub-galeria-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        grid-auto-rows: auto;
+    }
+
+    .cuadro-galeria {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
     .descripcion-fotos {
-        font-size: 0.5em;
+        font-size: 0.8em;
     }
 }

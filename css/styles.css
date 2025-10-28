@@ -1,5 +1,4 @@
 body {
-
     background-color: #470068be;
     padding: 0px;
     margin: 0px;
@@ -28,7 +27,9 @@ nav {
     font-weight: 400;
 }
 
-p, th, td {
+p,
+th,
+td {
     font-family: "Merriweather", serif;
 }
 
@@ -45,21 +46,22 @@ p, th, td {
     align-items: end;
 }
 
-/* Color de link no visitado */
+/* link no visitado */
 .navegador a:link {
     color: rgb(248, 232, 5);
     font-size: 22px;
     margin: 10px;
 }
 
-/* Color de link ya visitado */
+/* link visitado */
 .navegador a:visited {
     color: rgb(248, 232, 5);
 }
 
-/* Color cuando el ratón está encima */
+/* ratón está encima */
 .navegador a:hover {
     color: rgb(255, 247, 141);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
 /* Color cuando se hace clic */
@@ -164,6 +166,11 @@ p, th, td {
 
 .bases {
     display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 90%;
+    margin: 0 auto;
+    z-index: 2;
 }
 
 
@@ -189,10 +196,11 @@ p, th, td {
 }
 
 .derechos {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: small;
+    font-family: Helvetica, sans-serif;
+    font-size: 12px;
     color: rgb(255, 248, 149);
-    padding: 10px;
+    padding: 0 10px;
+    margin-top: 20px;
     display: flex;
     justify-content: flex-end;
     align-items: baseline;
@@ -233,4 +241,90 @@ p, th, td {
 
 .mail:visited {
     color: rgb(248, 232, 5);
+}
+
+/*QUERIES GENERALES*/
+@media screen and (max-width: 900px) {
+    body {
+        padding: 0;
+        margin: 0;
+        /* NO scroll lateral */
+        overflow-x: hidden;
+    }
+
+    /*header*/
+    header {
+        /* Apila el logo y el menú */
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .navegador {
+        /* links verticalmente */
+        flex-direction: column;
+        align-items: center;
+        margin: 10px 0;
+        padding: 0;
+    }
+
+    .navegador a:link,
+    .navegador a:visited,
+    .navegador a:hover {
+        /* Aumenta el área de toque */
+        margin: 5px 0;
+        padding: 5px;
+        font-size: 1.1rem;
+    }
+
+    .butn {
+        width: 90%;
+        max-width: 200px;
+        margin: 10px auto;
+    }
+
+    .pie {
+        min-height: auto;
+        height: auto;
+    }
+
+    .pie::before {
+        /* El color del pseudoelemento cubre todo */
+        height: 100%;
+        width: 100%;
+    }
+
+    .bases {
+        /* nav y mails del footer */
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .acomodar {
+        width: 90%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navegador1 {
+        align-items: center;
+        padding: 0;
+    }
+
+    .underline {
+        text-align: center;
+    }
+
+    .derechos {
+        justify-content: center;
+        text-align: center;
+        padding: 10px;
+        width: 100%;
+    }
+    .email {
+        text-align: center;
+        width: 100%;
+    }
 }
