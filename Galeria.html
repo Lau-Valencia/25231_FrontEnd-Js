@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -13,238 +13,68 @@
         rel="stylesheet">
 
     <link rel="icon" type="image/png" href="asset/imagenes/icons/Logo.png">
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/galeria.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/galeria.css">
 </head>
 
 <body>
+    <script src="app.js" defer></script>
+
     <header>
         <img src="asset/imagenes/icons/Logo.png" alt="Icono Lau_Valencia" class="img_logo">
         <nav>
             <ul class="navegador">
                 <li class="botn"><a href="home.html" class="underline">SOBRE MI</a></li>
-                <li class="botn"><a href="Servicios.html" class="underline">SERVICIOS</a></li>
+                <li class="botn"><a href="servicios.html" class="underline">SERVICIOS</a></li>
                 <li class="botn"><a href="Novedades.html" class="underline">NOVEDADES</a></li>
-                <li class="botn"><a href="Alumnos.html" class="underline">ALUMNOS</a></li>
-                <li class="botn"><a href="" class="activa">GALERIA</a></li>
-                <li class="botn"><a href="Contacto.html" class="underline">CONTACTO</a></li>
+                <li class="botn"><a href="Galeria.html" class="activa">GALERIA</a></li>
+                <li class="botn"><a href="contacto.html" class="underline">CONTACTO</a></li>
+            </ul>
         </nav>
     </header>
 
-<main>
-    <section class="sala-de-exhibicion" id="salaCantando">
-        <h2 class="sala-name">CANTANDO</h2>
-
-        <div class="sub-galeria-grid">
-            <div class="item-galeria ">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/cantando/YO_con_marco_dorado.jpg" alt="Actuación en vivo principal" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Casona del arte (Recital - 2013).</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/cantando/con_alumnos_dorado.jpg" alt="Foto Recital 2" class="cuadro-galeria">
-                    <p class="descripcion-fotos">cantando con alumnos (2017)</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/cantando/yo_rock_con_cuero_cuadro_dorado4.jpg" alt="Foto Recital 3" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Con SOPA (recital - 2018).</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/cantando/yo_rock_con_cuero_cuadro_dorado5.jpg" alt="Foto Recital 4" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Con SOPA (recital - 2018).</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/cantando/yo_rock_con_remera_kiss_cuadro_dorado.jpg" alt="Foto Recital 5" class="cuadro-galeria">
-                    <p class="descripcion-fotos">En Motores Calientes (Recital - 2019)</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/cantando/yo_rock_con_cuero_cuadro_dorado3.jpg" alt="Foto Recital 6" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Con Dr. GUM - Chiche Graciano (recital - 2018).</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/cantando/yo_rock_con_Die_cuadro_dorado.jpg" alt="Foto Recital 7" class="cuadro-galeria">
-                    <p class="descripcion-fotos">con alumnos (recital - 2019)</p>
-                </a>
-            </div>
+    <main>
+        <!-- Transición entre salas -->
+        <div id="transicion-puerta">
+            <p id="mensaje-transicion">Cargando...</p>
         </div>
-    </section>
 
-    <section class="sala-de-exhibicion" id="salaColegas">
-        <h2 class="sala-name">CON COLEGAS</h2>
+        <!-- MUSEO 360° - Contenedor principal -->
+        <div class="museo-360">
 
-        <div class="sub-galeria-grid">
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/con colegas/yo_con_Oski_cuadro_dorado.jpg" alt="Grabación con colega" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Noche de jazz (Oscar Giunta).</p>
-                </a>
+            <!-- Contenedor con scroll horizontal -->
+            <div id="museo-viewport" class="museo-viewport">
+
+                <!-- Superficie panorámica de 7000px donde van todos los elementos -->
+                <div id="pano-surface" class="pano-surface">
+
+                    <!-- Aquí el JS insertará dinámicamente:
+                         - Imagen de fondo panorámica
+                         - Título de la sala
+                         - Cartel con botones de navegación
+                         - Cuadros/fotos
+                         - Parlante de audio
+                    -->
+                    
+                </div>
             </div>
+
+            <!-- Flechas de navegación (fijas en viewport) -->
+            <button class="flecha-nav izquierda" onclick="girarMuseo(-500)" aria-label="Girar a la izquierda">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <polygon points="25,10 15,20 25,30" fill="rgba(248, 232, 5, 0.7)"/>
+                </svg>
+            </button>
             
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/con colegas/yo_con_chiche_cuadro_dorado.jpg" alt="Con colega 2" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Post show festejando mi cumpleaños (Chiche Graciano)</p>
-                </a>
-            </div>
+            <button class="flecha-nav derecha" onclick="girarMuseo(500)" aria-label="Girar a la derecha">
+                <svg width="40" height="40" viewBox="0 0 40 40">
+                    <polygon points="15,10 25,20 15,30" fill="rgba(248, 232, 5, 0.7)"/>
+                </svg>
+            </button>
 
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/con colegas/con_Mati_cuadro_dorado.jpg" alt="Con colega 3" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Antes del Show (Matias Duarte)</p>
-                </a>
-            </div>
         </div>
-    </section>
-
-    <section class="sala-de-exhibicion" id="salaAlumnos">
-        <h2 class="sala-name">CON ALUMNOS</h2>
-
-        <div class="sub-galeria-grid">
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/con alumnos/yo_con_Papacho_cuadro_dorado.jpg" alt="Con alumno principal" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Fin de clase (Leandro Pregelj).</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/con alumnos/Mati_alumno_dorado.jpg" alt="Con alumno 2" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Dando clases (Gabriel Duarte)</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/con alumnos/yo_con_marce_cuadro_dorado.jpg" alt="Con alumno 3" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Despues de su Show (Marcelo Chapu)</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="sala-de-exhibicion" id="salaComedia">
-        <h2 class="sala-name">COMEDIA MUSICAL</h2>
-
-        <div class="sub-galeria-grid">
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/comedia musical/Lau_Valencia_Borracha-de-amor_dorado.jpg" alt="Comedia musical principal" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Cartelera y programas (EUROPA. Borracha de amor - 2016).</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/comedia musical/yo_primerisimo_plano_cuadro_dorado.jpg" alt="Comedia 2" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Cartelera y programas (EUROPA. Borracha de amor - 2016)</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/comedia musical/EUROPA_dorado3.jpg" alt="Comedia 3" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Cartelera y programas (EUROPA. Borracha de amor - 2016)</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/comedia musical/EUROPA_dorado2.jpg" alt="Comedia 4" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Cartelera y programas (EUROPA. Borracha de amor - 2016)</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="sala-de-exhibicion" id="salaRadio">
-        <h2 class="sala-name">RADIO</h2>
-
-        <div class="sub-galeria-grid">
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/radio/yo_radio_sentidos_cuadro_dorado.jpg" alt="Radio principal" class="cuadro-galeria">
-                    <p class="descripcion-fotos">RadioSentidos (2018).</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/radio/yo_en_zoe_cuadro_dorado.jpg" alt="Radio 2" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Radio Zoe (2017)</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/radio/con_centinela_dorado.jpg" alt="Radio 3" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Con Centinela (Radio Zoe - 2017).</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/radio/con_gus_zabala_dorado.jpg" alt="Radio 4" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Con Gustavo Zabala - Tren Loco (Radio Zoe - 2018).</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/radio/Con_Sara_Flores_y_Lucas_Marino-colega_dorado.jpg" alt="Radio 5" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Con Sara Flores y Lucas Marino (Radio Zoe - 2018).</p>
-                </a>
-            </div>
-
-            <div class="item-galeria">
-                <a href="#" class="item-link">
-                    <img src="asset/imagenes/fotos/radio/Con_Walter_Soria-colega_dorado.jpg" alt="Radio 6" class="cuadro-galeria">
-                    <p class="descripcion-fotos">Con Walter Soria (Radio Zoe - 2019).</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-
 
     </main>
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <footer class="pie">
         <div class="imgPie">
@@ -259,16 +89,14 @@
                 </ul>
 
                 <ul class="navegador1">
-                    <!--target="_blank" (abrir en otra pagina sin salir de la web) rel="noopener (Previene un ataque de phishing a través de un objeto de JS, la página externa podría usar la apariencia de tu sitio para robar info al usuario.) noreferrer" (Impide que el navegador mande info sobre mi URL a la web que se abre)-->
                     <li><a href="asset/documentos/TyC" target="_blank" rel="noopener noreferrer"
-                            class="underline">Política
-                            de Privacidad</a></li>
+                            class="underline">Política de Privacidad</a></li>
                     <li><a href="asset/documentos/devolucion.docx" target="_blank" rel="noopener noreferrer"
                             class="underline">Política de devoluciones</a></li>
                 </ul>
             </div>
-            <div class="derechos">Todos los derechos de autor reservados © 2025. LadyBits™ by Lau_Valencia℠.
-                <img src="asset/imagenes/fotos/ladyBits_logo_negro-dorado_true.jpg" alt="LadyBits™" class="LadyBits">
+            <div class="derechos">Todos los derechos de autor reservados © 2025. LadyBits™ by Lau_Valencia™. <img
+                    src="asset/imagenes/fotos/ladyBits_logo_negro-dorado_true.jpg" alt="LadyBits™" class="LadyBits">
             </div>
         </div>
     </footer>

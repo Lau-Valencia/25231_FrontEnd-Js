@@ -99,7 +99,7 @@ color: rgb(248, 232, 5);
 .carousel-container {
     display: flex;
     overflow-x: scroll;
-    height: 540px;
+    /*height: 540px; problema de distindos tamaños?*/
     width: 90%;
     padding: 20px 0;
     /* desplazamiento manual suave */
@@ -144,6 +144,9 @@ color: rgb(248, 232, 5);
     scroll-snap-align: center;
     cursor: pointer;
     transition: box-shadow 0.3s ease, transform 0.4s ease;
+    /*altura cerradas*/
+    height: 350px;
+    min-height: 350px;
 }
 
 .review-card:hover {
@@ -164,6 +167,9 @@ color: rgb(248, 232, 5);
     /* Efecto "se acerca la tarjeta" */
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(248, 232, 5, 0.8);
+    /*tarjeta abierta*/
+    height: 550px;
+    max-height: 550px;
 }
 
 .card-toggle:checked~.review-card .full-description {

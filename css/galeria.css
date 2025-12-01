@@ -4,118 +4,494 @@
     box-sizing: border-box;
 }
 
-.sala-de-exhibicion {
-    padding: 80px 20px;
-    color: rgb(248, 232, 5);
-    font-size: 1.8rem;
-    position: relative;
-    min-height: 400px;
-}
-
-.sala-name {
-    font-family: "Merriweather", serif;
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* ===== CONTENEDOR DE LA GRILLA (3 COLUMNAS) ===== */
-.sub-galeria-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    grid-auto-rows: 250px;
-}
-
-/* ===== ITEMS DE LA GALERÍA ===== */
-.item-galeria {
-    position: relative;
-    overflow: hidden;
-    background-color: transparent;
-    border-radius: 3px;
-    height: 100%;
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-    transition: all 0.3s ease-in-out;
-}
-
-.item-galeria:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.6);
-}
-
-.item-link {
+/* MAIN - Contenedor principal */
+main {
     display: block;
-    height: 100%;
-    text-decoration: none;
-    position: relative;
+    min-height: calc(100vh - 110px - 160px);
+    height: auto;
+    overflow: hidden;
 }
 
-.cuadro-galeria {
+/* =============================================== */
+/* TRANSICIÓN ENTRE SALAS */
+/* =============================================== */
+
+#transicion-puerta {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    display: block;
-    object-fit: contain;
-    object-position: center;
-    box-shadow: inset 0 9 20 12px rgba(53, 1, 95, 24%);
-    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 9999;
+    pointer-events: none;
+    transition: opacity 1.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
 }
 
-/* ===== DESCRIPCIÓN DE FOTOS ===== */
-.descripcion-fotos {
+#mensaje-transicion {
+    display: none; /* Sin mensaje durante transición */
+}
+
+/* =============================================== */
+/* MUSEO 360° - ESTRUCTURA PRINCIPAL */
+/* =============================================== */
+
+.museo-360 {
+    position: relative;
+    width: 100%;
+    height: 750px;
+    overflow: hidden;
+}
+
+/* Viewport - Ventana visible del museo */
+.museo-viewport {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    cursor: grab;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Firefox */
+}
+
+.museo-viewport::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.museo-viewport:active {
+    cursor: grabbing;
+}
+
+/* Superficie panorámica - 7000px de ancho */
+.pano-surface {
+    width: 7000px;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-x;
+    transition: background-image 2s ease-in-out; /* Cross-fade más lento */
+}
+
+/* =============================================== */
+/* ELEMENTOS DENTRO DEL MUSEO */
+/* =============================================== */
+
+/* TÍTULO DE LA SALA - Letras pegadas a la pared */
+.titulo-sala-cartel {
     position: absolute;
-    bottom: 5px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 10;
-    background-color: #f3ea9b;
-    color: #444;
-    font-family: "Merriweather", serif;
-    font-size: 0.35em;
-    padding: 6px 12px;
-    margin: 0;
-    white-space: nowrap;
-    box-shadow: 1px 1px 3px rgba(105, 2, 153, 0.747);
-    border-radius: 2px;
+    background: transparent; /* Sin fondo, solo letras */
+    color: #f8e805;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    padding: 0;
+    border: none;
+    text-shadow: 
+        3px 3px 8px rgba(0, 0, 0, 0.9),
+        -1px -1px 2px rgba(139, 115, 85, 0.5),
+        1px 1px 0px rgba(139, 115, 85, 0.8);
+    z-index: 100;
 }
 
-/* Tablets 2 columnas */
+/* CARTEL DE NAVEGACIÓN - Señalización colgante tipo museo */
+.cartel-navegacion {
+    position: absolute;
+    top: 18px;
+    background: linear-gradient(to bottom, #8b4513 0%, #654321 100%);
+    padding: 25px 20px;
+    border: 4px solid #4a3020;
+    border-radius: 4px;
+    box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.8),
+        inset 0 2px 5px rgba(255, 255, 255, 0.1);
+    z-index: 90;
+    min-width: 280px;
+}
+
+/* Cuerda/soporte del cartel colgante */
+.cartel-navegacion::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(to bottom, #666 0%, #4a3020 100%);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.cartel-navegacion h3 {
+    color: #f5f5dc;
+    font-family: "Poiret One", sans-serif;
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-bottom: 2px solid #f5f5dc;
+    padding-bottom: 10px;
+}
+
+/* Botones con flechas direccionales y colores por sala */
+.cartel-navegacion button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    font-family: "Poiret One", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+    border: 2px solid transparent;
+    position: relative;
+}
+
+/* Colores por sala */
+.cartel-navegacion button[data-sala="salaCantando"] {
+    background-color: rgba(245, 222, 179, 0.9);
+    color: #2d1b0e;
+    border-color: #d2b48c;
+}
+
+.cartel-navegacion button[data-sala="salaColegas"] {
+    background-color: rgba(173, 216, 230, 0.9);
+    color: #0d3b66;
+    border-color: #87ceeb;
+}
+
+.cartel-navegacion button[data-sala="salaAlumnos"] {
+    background-color: rgba(220, 20, 60, 0.9);
+    color: #ffffff;
+    border-color: #dc143c;
+}
+
+.cartel-navegacion button[data-sala="salaComedia"] {
+    background-color: rgba(60, 179, 113, 0.9);
+    color: #ffffff;
+    border-color: #3cb371;
+}
+
+.cartel-navegacion button[data-sala="salaRadio"] {
+    background-color: rgba(138, 43, 226, 0.9);
+    color: #ffffff;
+    border-color: #8a2be2;
+}
+
+/* Flecha direccional en botones */
+.cartel-navegacion button::after {
+    content: '→';
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.cartel-navegacion button:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cartel-navegacion button:hover::after {
+    transform: translateX(5px);
+}
+
+.cartel-navegacion button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.cartel-navegacion button:disabled::after {
+    content: '●';
+    transform: none;
+}
+
+/* CUADROS - Fotos en la pared */
+.cuadro-museo {
+    position: absolute;
+    display: block;
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.8),
+        0 5px 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.cuadro-museo:hover {
+    transform: scale(1.05);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.9),
+        0 10px 25px rgba(212, 175, 55, 0.3);
+    z-index: 50;
+}
+
+.cuadro-museo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Tamaños de cuadros */
+.cuadro-vertical {
+    width: 300px;
+}
+
+.cuadro-horizontal {
+    width: 500px;
+}
+
+.cuadro-grande {
+    width: 580px;
+}
+
+.cuadro-medio {
+    width: 400px;
+}
+
+.cuadro-pequeño {
+    width: 200px;
+}
+
+/* =============================================== */
+/* PARLANTE DE AUDIO - SIEMPRE VISIBLE */
+/* =============================================== */
+
+.parlante-museo {
+    position: absolute;
+    top: 190px;
+    width: 125px;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    border: 3px solid #4a4a4a;
+    border-radius: 15px;
+    box-shadow: 
+        0 10px 30px rgba(0, 0, 0, 0.8),
+        inset 0 2px 5px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 10px;
+    z-index: 80;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.parlante-museo:hover {
+    transform: translateY(-3px);
+}
+
+/* Rejilla del parlante (decorativo) */
+.parlante-rejilla {
+    width: 90%;
+    height: 50px;
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #4a4a4a 0px,
+            #4a4a4a 2px,
+            transparent 2px,
+            transparent 6px
+        );
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Control de audio SIEMPRE visible */
+.parlante-museo audio {
+    width: 100%;
+    height: 35px;
+    margin-top: 5px;
+    opacity: 1; /* Siempre visible */
+}
+
+/* Indicador visual de audio */
+.audio-indicator {
+    font-size: 1.8rem;
+    color: rgb(219, 193, 46);
+    margin: 5px 0;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Control de volumen (aparece al click) */
+.volumen-control {
+    width: 100%;
+    margin-top: 10px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.parlante-museo.expandido .volumen-control {
+    opacity: 1;
+    max-height: 50px;
+}
+
+.volumen-control input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* =============================================== */
+/* FLECHAS DE NAVEGACIÓN (FIJAS EN VIEWPORT) */
+/* =============================================== */
+
+.flecha-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(248, 232, 5, 0.7);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 200;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.flecha-nav:hover {
+    background: rgba(248, 232, 5, 0.2);
+    transform: translateY(-50%) scale(1.1);
+    border-color: rgb(248, 232, 5);
+}
+
+.flecha-nav.izquierda {
+    left: 20px;
+}
+
+.flecha-nav.derecha {
+    right: 20px;
+}
+
+.flecha-nav svg {
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
+}
+
+/* =============================================== */
+/* RESPONSIVE DESIGN */
+/* =============================================== */
+
 @media (max-width: 900px) {
-    .sub-galeria-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
-        grid-auto-rows: auto;
+    .museo-360 {
+        height: 700px;
     }
 
-    .item-cantante-principal,
-    .item-main {
-        grid-column: span 1;
-        grid-row: span 1;
+    .titulo-sala-cartel {
+        font-size: 2rem;
+        padding: 15px 40px;
+        letter-spacing: 3px;
+    }
+
+    .cartel-navegacion {
+        padding: 20px 15px;
+        top: 120px;
+        min-width: 240px;
+    }
+
+    .cuadro-vertical {
+        width: 220px;
+    }
+
+    .cuadro-horizontal {
+        width: 320px;
+    }
+
+    .cuadro-grande {
+        width: 360px;
+    }
+
+    .flecha-nav {
+        width: 50px;
+        height: 50px;
+    }
+
+    .flecha-nav svg {
+        width: 30px;
+        height: 30px;
     }
 }
 
-/* celulares 1 columna */
 @media (max-width: 600px) {
-    .sala-de-exhibicion {
-        padding: 40px 10px;
+    .museo-360 {
+        height: 700px;
     }
 
-    .sub-galeria-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        grid-auto-rows: auto;
+    .titulo-sala-cartel {
+        font-size: 1.5rem;
+        padding: 12px 30px;
+        letter-spacing: 2px;
+        top: 20px;
     }
 
-    .cuadro-galeria {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
+    .cartel-navegacion {
+        padding: 15px 12px;
+        top: 100px;
+        min-width: 200px;
     }
 
-    .descripcion-fotos {
-        font-size: 0.8em;
+    .cartel-navegacion h3 {
+        font-size: 1rem;
+    }
+
+    .cartel-navegacion button {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+
+    .cuadro-vertical {
+        width: 180px;
+    }
+
+    .cuadro-horizontal {
+        width: 260px;
+    }
+
+    .cuadro-grande {
+        width: 280px;
+    }
+
+    .cuadro-pequeño {
+        width: 150px;
+    }
+
+    .parlante-museo {
+        width: 110px;
+    }
+
+    .flecha-nav {
+        width: 45px;
+        height: 45px;
+    }
+
+    .flecha-nav.izquierda {
+        left: 10px;
+    }
+
+    .flecha-nav.derecha {
+        right: 10px;
     }
 }

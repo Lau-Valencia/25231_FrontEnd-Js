@@ -32,22 +32,43 @@
     display: flex;
     justify-content: space-evenly;
     width: 100%;
-    margin: 10px;
-}
-
-.imagen-home {
-    width: 50%;
-    margin: 10px;
-    display: flex;
+    margin: 10px auto;
+    /* CLAVE: Permite que los elementos se apilen en pantallas pequeñas */
+    flex-wrap: wrap;
+    padding: 0 10px;
     align-items: center;
 }
 
 
+.imagen-home {
+    /* CLAVE: Uso max-width para img adapta al contenedor */
+    /* y NUNCA + q límites de pantalla. */
+    max-width: 30%;
+    height: auto; /* proporción img no se estira */
+    margin: 10px;
+    display: block;
+}
+
 .parrafo-home {
-    width: 50vh;
+    max-width: 50%;
     display: flex;
     flex-direction: column;
     margin: 20px;
     font-size: 24px;
     color: rgb(211, 179, 1);
+}
+
+@media (max-width: 768px) {
+    .contenedor-fila {
+        justify-content: center;
+    }
+    .imagen-home,
+    .parrafo-home {
+        max-width: 90%;
+        font-size: 18px;
+    }
+    .imagen-home img {
+        max-width: 200px !important;
+        height: auto !important;
+    }
 }
